@@ -33,7 +33,7 @@ cloze$CF..Time.<-as.numeric(as.POSIXct(as.character(cloze$Time),format="%Y-%m-%d
 cloze<-cloze[order(cloze$Anon.Student.Id, cloze$CF..Time.),]
 
 #create a binary response column to predict and extract only data with a clozeid clozeue
-cloze$CF..ansbin.<-ifelse(tolower(cloze$Outcome)=="correct",1,ifelse(tolower(cloze$Outcome)=="incorrect",0,-1))
+cloze$CF..ansbin.<-ifelse(cloze$Outcome=="CORRECT",1,ifelse(cloze$Outcome=="INCORRECT",0,-1))
 cloze<-cloze[cloze$CF..ansbin==0 | cloze$CF..ansbin.==1,]
 
 
